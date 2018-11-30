@@ -30,6 +30,12 @@ int vfsmovedir(char *P1, char *P2) {
 	/*to do
 	search P1 and P2 in the bst and store return result in src_fd and des_fd
 	*/
+	//my code begin
+	src_fd= bst_find(globaldata->root_bst,src_Path );
+	des_fd= bst_find(globaldata->root_bst,dest_Path );
+	//my code end
+	
+	
 	if (src_fd == NULL )
 		return MOVEDIR_CANNOT_FIND_SPECIFIED_SOURCEDIR;
 	if (des_fd == NULL )
@@ -56,6 +62,12 @@ int vfsmovedir(char *P1, char *P2) {
 	insert bst_fd_insert in the bst
 	delete bst_fd_del from the bst
 	*/
+	//my code begins
+	bst_insert(&globaldata->root_bst, bst_fd_insert);
+	bst_delete(&globaldata->root_bst, bst_fd_del);
+	//my code ends
+	
+	
 	return 0;
 }
 
@@ -153,6 +165,11 @@ if (ismounted != 1) {
 	/* to do
 	insert fd in all the data structure nary,hashtable and bst
 	*/
+	//my code begins
+	bst_insert(&globaldata->root_bst,fd);
+	hashtable_insert(&globaldata->hash_table,fd);
+	nary_insert_node(&globaldata->root_nary,fd);
+	//my code ends
 
 
 	return 0;
