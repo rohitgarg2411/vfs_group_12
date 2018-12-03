@@ -168,7 +168,7 @@ if (ismounted != 1) {
 	//my code begins
 	bst_insert(&globaldata->root_bst,fd);
 	hashtable_insert(&globaldata->hash_table,fd);
-	nary_insert_node(&globaldata->root_nary,fd);
+	insert_node(&globaldata->root_nary,fd);
 	//my code ends
 
 
